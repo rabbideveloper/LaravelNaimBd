@@ -29,3 +29,6 @@ Route::get('phone-book/{id}/edit',[PhoneBookController::class,'edit'])->name('ph
 Route::get( 'phone-book/{id}', [PhoneBookController::class, 'show'] )->name( 'phone-book.show' );
 Route::put( 'phone-book/{id}',[PhoneBookController::class,'update'])->name('phone-book.update');
 Route::delete( 'phone-book/{id}',[PhoneBookController::class,'destroy'])->name('phone-book.destroy');
+
+
+// Route::resource('phone-book',PhoneBookController::class);
