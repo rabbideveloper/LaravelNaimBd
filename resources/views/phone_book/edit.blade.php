@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Edit Contact</title>
+    <title>Edit phoneBook</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -19,19 +19,19 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Edit Contact</h4>
+                        <h4>Edit phoneBook</h4>
                     </div>
                     <div class="card-body">
-                        {!! Form::open(['method'=>'put','route'=>['phone-book.update', $contact->id]]) !!}
+                        {!! Form::open(['method'=>'put','route'=>['phone-book.update', $phoneBook->id]]) !!}
 
                         {!! Form::label('name','Name') !!}
-                        {!! Form::text('name',$contact->name,['class'=>'form-control','placeholder'=>'Enter Full Name']) !!}
+                        {!! Form::text('name',$phoneBook->name,['class'=>'form-control','placeholder'=>'Enter Full Name']) !!}
 
                         {!! Form::label('phone','Phone',['class'=>'mt-3']) !!}
-                        {!! Form::text('phone',$contact->phone,['class'=>'form-control','placeholder'=>'Enter valid phone number'])
+                        {!! Form::text('phone',$phoneBook->phone,['class'=>'form-control','placeholder'=>'Enter valid phone number'])
                         !!}
 
-                        {!! Form::button('Update Contact',['type'=>'submit','class'=>'btn btn-success mt-3 btn-sm'])
+                        {!! Form::button('Update phoneBook',['type'=>'submit','class'=>'btn btn-success mt-3 btn-sm'])
                         !!}
                         {!! Form::close() !!}
                     </div>
