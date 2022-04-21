@@ -1,5 +1,6 @@
 @extends('layouts.master')
 
+@section('title','Phone Book Details')
 @section('content')
 
 <div class="card">

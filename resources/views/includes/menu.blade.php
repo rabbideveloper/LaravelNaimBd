@@ -5,9 +5,9 @@
         </div>
         <div class="card-body">
             <ul class="list-group">
-                <li class="list-group-item"><a class="text-dark text-decoration-none" href="">Contact
+                <li class="list-group-item"><a class="text-dark text-decoration-none" href="{{ route('phone-book.index') }}">Contact
                         List</a></li>
-                <li class="list-group-item"><a class="text-dark text-decoration-none" href="">Add
+                <li class="list-group-item"><a class="text-dark text-decoration-none" href="{{ route('phone-book.create') }}">Add
                         Contact</a></li>
             </ul>
         </div>
