@@ -32,6 +32,10 @@ class PhoneBookController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function store( Request $request ) {
+        $this->validate($request,[
+            'name'=>'required|min:3|max:50',
+            'phone'=>'required|numeric|digits:11'
+        ]);
         PhoneBook::create( $request->all() );
         return redirect()->route( 'phone-book.index' );
     }
