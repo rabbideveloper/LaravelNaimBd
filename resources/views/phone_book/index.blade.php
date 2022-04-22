@@ -5,9 +5,21 @@
 
 <div class="card">
     <div class="card-header">
-        <h4>Phone Book List</h4>
+        <div class="d-flex justify-content-between">
+            <h4 class="mb-0">Phone Book List</h4>
+            <a href="{{ route('phone-book.create') }}">
+                <button class="btn btn-success btn-sm">Add Contact</button>
+            </a>
+        </div>
     </div>
     <div class="card-body">
+
+        @if(session()->has('msg'))
+            <div class="alert alert-{{ session('cls') }}">
+                {!! session('msg') !!}
+            </div>
+        @endif
+
         <table class="table table-bordered table-striped table-hover">
             <tr>
                 <thead>

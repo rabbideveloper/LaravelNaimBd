@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PhoneBookRequest;
 use App\Models\PhoneBook;
-use Illuminate\Http\Request;
 
 class PhoneBookController extends Controller {
     /**
@@ -31,12 +31,14 @@ class PhoneBookController extends Controller {
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store( Request $request ) {
-        $this->validate($request,[
-            'name'=>'required|min:3|max:50',
-            'phone'=>'required|numeric|digits:11'
-        ]);
+    public function store( PhoneBookRequest $request ) {
+        // $this->validate( $request, [
+        //     'name'  => 'required|min:3|max:50',
+        //     'phone' => 'required|numeric|digits:11',
+        // ] );
         PhoneBook::create( $request->all() );
+        session()->flash( 'msg', 'Contact created successfully' );
+        session()->flash( 'cls', 'success' );
         return redirect()->route( 'phone-book.index' );
     }
 
@@ -67,8 +69,14 @@ class PhoneBookController extends Controller {
      * @param  \App\Models\PhoneBook  $phoneBook
      * @return \Illuminate\Http\Response
      */
-    public function update( Request $request, PhoneBook $phoneBook ) {
+    public function update( PhoneBookRequest $request, PhoneBook $phoneBook ) {
+        // $this->validate( $request, [
+        //     'name'  => 'required|min:3|max:50',
+        //     'phone' => 'required|numeric|digits:11',
+        // ] );
         $phoneBook->update( $request->all() );
+        session()->flash( 'msg', 'Contact updated successfully' );
+        session()->flash( 'cls', 'info' );
         return redirect()->route( 'phone-book.index' );
     }
 
@@ -78,8 +86,10 @@ class PhoneBookController extends Controller {
      * @param  \App\Models\PhoneBook  $phoneBook
      * @return \Illuminate\Http\Response
      */
-    public function destroy(PhoneBook $phoneBook ) {
+    public function destroy( PhoneBook $phoneBook ) {
         $phoneBook->delete();
+        session()->flash( 'msg', 'Contact Deleted successfully' );
+        session()->flash( 'cls', 'danger' );
         return redirect()->route( 'phone-book.index' );
     }
 }
